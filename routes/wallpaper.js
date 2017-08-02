@@ -42,24 +42,26 @@ router.get('/', function (req, res, next) {
 
 });
 
-router.get('/moveee', function (req, res, next) {
+router.post('/image', function (req, res, next) {
 
-    Wallpaper.find(function (err, walls) {
+    Wallpaper.findOne({image:req.body.image},function (err, wall) {
         if (err) return res.status(500).json(err);
 
-        cloudinary.config({
-            cloud_name: 'vibranium',
-            api_key: '122269859827371',
-            api_secret: 'scJeSkNP2yfuVH9BnOFUqvkNCJw'
-        });
+        return res.json(wall.cld.url)
 
-        for (let i of walls) {
-            cloudinary.uploader.upload(i.image, function (result) {
-                console.log("inserted");
-            });
+    })
+})
+
+router.post('/catimage', function (req, res, next) {
+
+    Wallpaper.find({cat_id:req.body.cat},function (err, walls) {
+        if (err) return res.status(500).json(err);
+        let k = [];
+        for(let i of walls){
+            if(i.cld)
+            k.push(i.cld.url);
         }
-        return res.json({ "done": "bro" })
-
+        return res.json(k)
     })
 })
 
