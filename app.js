@@ -8,7 +8,8 @@ var bodyParser = require('body-parser');
 var index = require('./routes/index');
 var users = require('./routes/users');
 var category = require('./routes/category');
-var wallpaper = require('./routes/wallpaper')
+var wallpaper = require('./routes/wallpaper');
+var test = require('./routes/test');
 
 var mongo = require('./database.json');
 var bodyParser = require('body-parser');
@@ -38,6 +39,7 @@ app.use('/', index);
 app.use('/users', users);
 app.use('/category', category)
 app.use('/wallpaper', wallpaper)
+app.use('/test', test);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
