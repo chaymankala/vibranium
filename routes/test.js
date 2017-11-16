@@ -21,7 +21,7 @@ router.get('/', function (req, res, next) {
                                 c = c.replace(/  /g, "_");
                                 c = c.split('_')[0]
                                 c = c.replace(/([A-Z])/g, ' $1').trim()
-                                dataToSend.push(c);
+                                dataToSend.push({name:c});
                             }
                             catch (err) {
                                 console.log(err)
