@@ -20,13 +20,13 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 var mongoose = require('mongoose');
-mongoose.connect(mongo.credentials)
-  .then(() => {
-    console.log('connected bro!');
-  })
-  .catch((err) => {
-    console.log(err);
-  });
+// mongoose.connect(mongo.credentials)
+//   .then(() => {
+//     console.log('connected bro!');
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//   });
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
