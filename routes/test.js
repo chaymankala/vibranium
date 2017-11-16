@@ -30,7 +30,7 @@ router.get('/', function (req, res, next) {
         }
         let resToSend = [];
         for (let i of result.songs) {
-            if (i && i.song) resToSend.push({ name: i.song.split('-')[1] || i.song, artist: i.song.split('-')[0] || 'Unknown', imgUrl: i.src });
+            if (i && i.song) resToSend.push({ name: i.song.split('-')[1] || i.song, artist: i.song.split('-')[0] || 'Unknown', artwork: i.src });
         }
         resToSend = resToSend.slice(parseInt(offset), parseInt(limit) + parseInt(offset));
         res.json({ data: resToSend });
