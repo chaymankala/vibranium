@@ -6,7 +6,8 @@ var htmlToJson = require('html-to-json');
 router.get('/', function (req, res, next) {
     let limit = req.query.limit || 200;
     let offset = req.query.offset || 0;
-    var url = 'http://snkhan.co.uk/stuff/iTunes.php?chart=USpop';
+    let chart = req.query.chart || 'USpop'; 
+    var url = 'http://snkhan.co.uk/stuff/iTunes.php?chart='+chart;
     console.log('Im here 1')
 
 
